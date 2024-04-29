@@ -35,7 +35,7 @@ phases:
       - pwd
       - ls -la
       - sam package --help
-      - sam package --output-template-file packaged.yaml --s3-bucket $PACKAGE_BUCKET --template-file template.yaml
+      - sam package --output-template-file packaged.yaml --s3-bucket $PACKAGE_BUCKET --template-file template.yaml --debug
 
 artifacts:
   discard-paths: yes
