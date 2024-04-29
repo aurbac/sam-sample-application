@@ -23,13 +23,15 @@ phases:
     commands:
       # Use Build phase to build your artifacts (compile, etc.)
       #- cd ..
-      - sam build
+      #- sam build
+      - sam build --template-file template.yaml
 
   post_build:
     commands:
       # Use Post-Build for notifications, git tags, upload artifacts to S3
       - echo $PACKAGE_BUCKET
-      - sam package --s3-bucket $PACKAGE_BUCKET --output-template-file packaged.yaml
+      #- sam package --s3-bucket $PACKAGE_BUCKET --output-template-file packaged.yaml
+      - sam package --output-template-file packaged.yaml --s3-bucket $PACKAGE_BUCKET --template-file template.yaml
 
 artifacts:
   discard-paths: yes
