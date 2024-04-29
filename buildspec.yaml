@@ -25,12 +25,14 @@ phases:
       #- cd ..
       #- sam build
       - sam build --template-file template.yaml
+      - pwd
 
   post_build:
     commands:
       # Use Post-Build for notifications, git tags, upload artifacts to S3
       - echo $PACKAGE_BUCKET
       #- sam package --s3-bucket $PACKAGE_BUCKET --output-template-file packaged.yaml
+      - pwd
       - sam package --output-template-file packaged.yaml --s3-bucket $PACKAGE_BUCKET --template-file template.yaml
 
 artifacts:
