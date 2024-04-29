@@ -36,6 +36,7 @@ phases:
       - ls -la
       - sam package --help
       - aws cloudformation package --output-template-file packaged.yaml --s3-bucket $PACKAGE_BUCKET --template-file template.yaml --debug
+      - cat packaged.yaml
 
 artifacts:
   discard-paths: yes
